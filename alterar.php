@@ -28,7 +28,7 @@ endif
         <div class="row align-self-center justify-content-center">
 
             <!-- Formulario -->
-            <div class="col-3" id="estiloForm">
+            <div class="col-md-3 col-sm-10" id="estiloForm">
 
                 <h3 class="text-center">Alterar Cadastro</h3>
                 

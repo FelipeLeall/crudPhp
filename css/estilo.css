@@ -1,22 +1,6 @@
-@keyframes bounce{
-    0%, 20%, 60%, 100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-    40% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-    80% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-}
-
 #estiloForm {
     background-color: rgb(245, 245, 245);
     padding: 10px 10px;
-    margin-left: 20px;
     margin-top: 15px;
     border-radius: 5px;
     align-items: center;
@@ -25,10 +9,9 @@
 }
 
 #listagem {
-    background-color:rgb(200, 200, 200);
-    padding: 10px 10px;
-    margin-left: 20px;
+    background-color:rgb(200, 200, 200);    
     margin-top: 15px;
+    padding: 10px 10px;
     border-radius: 5px;
 
 }
@@ -41,6 +24,3 @@
     align-items: center;
     justify-items: center;
 }
-
-
-

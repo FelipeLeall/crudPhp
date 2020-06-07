@@ -4,7 +4,7 @@ include './acao/conexcao_db.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@ include './acao/conexcao_db.php';
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- CSS -->
     <link rel="stylesheet" href="./css/estilo.css">
-    <title>Document</title>
+    <title>CRUD</title>
 </head>
 
 <body style="background-color: black;">
@@ -22,7 +22,7 @@ include './acao/conexcao_db.php';
         <div class="row align-self-center justify-content-center">
 
             <!-- Formulario -->
-            <div class="col-3" id="estiloForm">
+            <div class="col-md-3 col-sm-10" id="estiloForm">
 
                 <h3 class="text-center">Realizar Cadastro</h3>
                 <br>
@@ -58,11 +58,11 @@ include './acao/conexcao_db.php';
                 </form>
             </div>
 
-            <!-- Diva para facilitar separação por meio da grid -->
-            <div class="col-1"></div>
+            <!-- Div para facilitar separação por meio da grid -->
+            <div class="col-md-1 d-none d-md-block"></div>
 
             <!-- Listagem -->
-            <div class="col-6 justify-content-center" id="listagem">
+            <div class="col-md-6 col-sm-10 justify-content-center" id="listagem">
                 <h3 class="text-center">Listagem</h3>
                 <br>
 
@@ -75,12 +75,12 @@ include './acao/conexcao_db.php';
 
                     <div class="row align-self-center justify-content-center" id="listaPessoa">
 
-                        <div class="col-9">
+                        <div class="col-md-9 col-sm-9">
                             <p><strong>Nome:</strong>
                                 <?echo $dados['nome'];?>
                             </p>
                             <p><strong>Data de nascimento:</strong>
-                                <?echo $dados['nascimento'];?>
+                                <?echo formatoData($dados['nascimento']);?>
                             </p>
                             <p><strong>Email:</strong>
                                 <?echo $dados['email'];?>
@@ -93,8 +93,9 @@ include './acao/conexcao_db.php';
                             </p>
                         </div>
 
-                        <div class="col-3">
+                        <div class="col-md-3 col-sm-3">
                             <br><br><br><br><br><br>
+                            <!-- Ação deste formulario apenas terá efeito no botão  Excluir -->
                             <form action="./acao/excluir.php" method="POST">
                                 <!-- Alterar Registro -->
                                 <a href="alterar.php?id=<?php echo $dados['id'] ?>" type="submit" class="btn btn-primary btn-sm">Alterar</a>
@@ -114,6 +115,17 @@ include './acao/conexcao_db.php';
             </div>
         </div>
     </div>
+
+    <?php
+
+    // Apresentar a data no formato Dia/Mes/Ano
+    function formatoData($data)
+    {
+        $array = explode('-', $data);
+        $novaData = $array[2] . '/' . $array[1] . '/' . $array[0];
+        return $novaData;
+    }
+    ?>
 
     <!-- Bootstrap JS e Jquery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
